@@ -1,5 +1,6 @@
 package fr.deathfull.template;
 
+import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
@@ -18,6 +19,7 @@ public class TemplatePlugin extends JavaPlugin {
     protected void setup() {
         this.getCommandRegistry().registerCommand(new Ping());
         this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, new EventListener()::onPlayerReady);
+        this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, new EventListener()::onAddPlayerToWorld);
         getLogger().atInfo().log("Plugin setup complete!");
     }
 
