@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'fr.deathfull'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+def osName = System.getProperty("os.name").toLowerCase()
+def userHome = System.getProperty("user.home")
+def libDir
+
+if (osName.contains("win")) {
+    libDir = new File(userHome, "AppData/Roaming/hytale/install/release/package/game/latest/Server/")
+} else if (osName.contains("mac")) {
+    libDir = new File(userHome, "Library/Application Support/hytale/install/release/package/game/latest/Server/")
+} else {
+    libDir = new File(userHome, "hytale/install/release/package/game/latest/")
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs libDir
+    }
+}
+
+dependencies {
+    compileOnly "com.hypixel.hytale:HytaleServer:latest"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

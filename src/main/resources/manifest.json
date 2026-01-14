@@ -1,0 +1,18 @@
+{
+  "Group": "TemplateGroup",
+  "Name": "TemplatePlugin",
+  "Version": "0.0.1",
+  "Description": "A brief description of your plugin.",
+  "Authors": [
+    {
+      "Name": "DeathFull",
+      "Email": "contact@deathfull.fr",
+      "Url": "https://www.deathfull.fr/"
+    }
+  ],
+  "Main": "fr.deathfull.template.TemplatePlugin",
+  "ServerVersion": "*",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false
+}
